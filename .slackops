@@ -1,0 +1,17 @@
+[TITLE]
+Slack
+[SHORTCUT]
+Q,@admin @boss 
+W,@teamA @teamB 
+E,CC: @teamA @teamB
+[CONVERT]
+git,https://github.com/yasutakatou/slackops
+rm -rf,DONT USE!
+[SEND]
+S
+[ENTER]
+X
+[WAIT]
+100
+[SINGLELINE]
+N
