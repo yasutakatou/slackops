@@ -2,7 +2,7 @@
  * help your operations like shell prompt when use slack.
  *
  * @author    yasutakatou
- * @copyright 2020 yasutakatou
+ * @copyright 2021 yasutakatou
  * @license   MIT License, Apache License 2.0, GNU General Public License v3.0
  */
 package main
