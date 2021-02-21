@@ -58,6 +58,8 @@ func executor(in string) {
 	robotgo.MilliSleep(sleepWait)
 	if singleLine == true {
 		robotgo.KeyTap("enter")
+		robotgo.MilliSleep(sleepWait)
+		robotgo.KeyTap("enter")
 	}
 	ChangeTarget(currentHwnd)
 
