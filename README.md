@@ -2,6 +2,10 @@
 
 slackの操作をシェルプロっぽくするツール。あとショートカットで文字送ったり。
 
+![1](https://user-images.githubusercontent.com/22161385/108616505-37118480-7451-11eb-87fe-e2b8a1e4af46.gif)
+
+![2](https://user-images.githubusercontent.com/22161385/108616513-442e7380-7451-11eb-9507-631051a27516.gif)
+
 ## 提案
 
 slack使ってるとネイティブアプリがWebアプリぽい操作感なのに、ターミナルがシェルなのでモヤる時ありませんか？
