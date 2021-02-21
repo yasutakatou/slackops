@@ -101,3 +101,7 @@ Usage of slackops.exe:
 
 ### -debug
 デバッグモードで起動します。指定すると内部動作情報が色々出てきます。
+
+## ライセンス
+
+MIT License, Apache License 2.0, GNU General Public License v3.0
