@@ -26,13 +26,13 @@ import (
 )
 
 var (
-	currentHwnd, targetHwnd uintptr
-	debug                   bool
-	wTitle, Sender, Enter   string
-	ShortCuts               []csvData
-	Converts                []csvData
-	sleepWait               int
-	singleLine              bool
+	currentHwnd, targetHwnd        uintptr
+	debug                          bool
+	wTitle, Sender, Enter, Deletes string
+	ShortCuts                      []csvData
+	Converts                       []csvData
+	sleepWait                      int
+	singleLine                     bool
 )
 
 type csvData struct {
@@ -109,7 +109,7 @@ func main() {
 
 func loadConfig(filename string) {
 	loadOptions := ini.LoadOptions{}
-	loadOptions.UnparseableSections = []string{"TITLE", "SHORTCUT", "CONVERT", "SEND", "ENTER", "WAIT", "SINGLELINE"}
+	loadOptions.UnparseableSections = []string{"TITLE", "SHORTCUT", "CONVERT", "SEND", "ENTER", "WAIT", "SINGLELINE", "DELETE"}
 
 	cfg, err := ini.LoadSources(loadOptions, filename)
 	if err != nil {
@@ -124,6 +124,7 @@ func loadConfig(filename string) {
 	setSingleConfigStr(&Enter, "ENTER", cfg.Section("ENTER").Body())
 	setSingleConfigInt(&sleepWait, "WAIT", cfg.Section("WAIT").Body())
 	setSingleConfigBool(&singleLine, "SINGLELINE", cfg.Section("SINGLELINE").Body())
+	setSingleConfigStr(&Deletes, "DELETE", cfg.Section("DELETE").Body())
 }
 
 func setSingleConfigBool(config *bool, configType, datas string) {
@@ -256,6 +257,19 @@ func keyTaps(keystr string, keyint int) {
 			robotgo.KeyToggle("shift", "down")
 			robotgo.KeyTap("enter")
 			robotgo.KeyToggle("shift", "up")
+			robotgo.MilliSleep(sleepWait)
+			ChangeTarget(currentHwnd)
+		}
+		if keystr == Deletes {
+			if debug == true {
+				fmt.Println("delete", keystr)
+			}
+			ChangeTarget(targetHwnd)
+			robotgo.MilliSleep(sleepWait)
+			robotgo.KeyToggle("ctrl", "down")
+			robotgo.KeyTap("a")
+			robotgo.KeyToggle("ctrl", "up")
+			robotgo.KeyTap("delete")
 			robotgo.MilliSleep(sleepWait)
 			ChangeTarget(currentHwnd)
 		}
